@@ -56,20 +56,28 @@ CREATE TABLE TB_Vendedores (
    --verificar se tem chave estrangeira
 
 -----------------------------------------------------------------------
+CREATE TABLE TB_TIPO_PAGAMENTO
+(
+	ID_TIPO_PAGAMENTO INT NOT NULL IDENTITY(1,1),
+	COD_TIPO_PAGAMENTO INT NOT NULL,
+	TIPO_PAGAMENTO VARCHAR(25) NULL CHECK(TIPO_PAGAMENTO IN ('DINHEIRO','CARTÃO A VISTA'))
+)
+ALTER TABLE TB_TIPO_PAGAMENTO ADD CONSTRAINT PK_TIPO_PAGAMENTO PRIMARY KEY (ID_TIPO_PAGAMENTO)
+
+-----------------------------------------------------------------------
 
 CREATE TABLE TB_Vendas (
    idVenda INT NOT NULL identity(1,1),
    cod_Venda INT NULL,
    dataVenda DATETIME NULL,
    valor DECIMAL(10,2) NULL,
-   TipoPagamentocol VARCHAR(25) NULL CHECK (TipoPagamentocol IN ('Dinheiro', 'CartaoDebito')),
    quantidade INT NULL,
    idVendedores INT NOT NULL,--p/ chave estrangeira
    idCliente INT NOT NULL,--p/ chave estrangeira
    )
-    ALTER TABLE TB_Vendas ADD CONSTRAINT PK_TB_Vendas PRIMARY KEY (idvenda);
-	ALTER TABLE TB_Vendas ADD CONSTRAINT FK_Vendedores FOREIGN KEY (idVendedores) REFERENCES TB_Vendedores (idVendedores);
-	ALTER TABLE TB_Vendas ADD CONSTRAINT FK_Cliente FOREIGN KEY (idCliente) REFERENCES TB_Cliente (idCliente);
+ALTER TABLE TB_Vendas ADD CONSTRAINT PK_TB_Vendas PRIMARY KEY (idvenda);
+ALTER TABLE TB_Vendas ADD CONSTRAINT FK_Vendedores FOREIGN KEY (idVendedores) REFERENCES TB_Vendedores (idVendedores);
+ALTER TABLE TB_Vendas ADD CONSTRAINT FK_Cliente FOREIGN KEY (idCliente) REFERENCES TB_Cliente (idCliente);
 
 
    --verificar se tem chave estrangeira
@@ -81,17 +89,15 @@ CREATE TABLE TB_Locacao (
    cod_Locacao INT NULL,
    data_Locacao DATETIME NULL,
    valorLocacao DECIMAL(10,2) NULL,
-   TipoPagamentocol VARCHAR(25) NULL CHECK (TipoPagamentocol IN ('Dinheiro', 'CartaoDebito')),
    quantidade INT NULL,
    idVendedores INT NOT NULL,--p/ chave estrangeira
    idCliente INT NOT NULL,--p/ chave estrangeira
    )
 ALTER TABLE TB_LOCACAO ADD CONSTRAINT PK_TB_LOCACAO PRIMARY KEY (idLocacao);
 ALTER TABLE TB_LOCACAO ADD CONSTRAINT FKL_VENDEDORES FOREIGN KEY (idVendedores) REFERENCES TB_Vendedores (idVendedores);
-ALTER TABLE TB_LOCACAO ADD CONSTRAINT FKL_Cliente FOREIGN KEY (idCliente) REFERENCES TB_Cliente (idCliente);
+ALTER TABLE TB_LOCACAO ADD CONSTRAINT FKL_Cliente FOREIGN KEY (idCliente) REFERENCES TB_Cliente (idCliente); 
 
 -----------------------------------------------------------------------
-
 
 -----------------------------------------------------------------------
 CREATE TABLE TB_Transporte (
@@ -101,8 +107,7 @@ CREATE TABLE TB_Transporte (
    EnderecoFesta VARCHAR(45) NULL,
    idLocacao INT NOT NULL,
    idVenda INT NOT NULL,
-  )
-
-  Alter table TB_Transporte add constraint pk_TB_Transporte PRIMARY KEY (idTransporte, idLocacao, idVenda);
-  Alter table TB_Transporte add CONSTRAINT fkt_TB_Locacao FOREIGN KEY (idLocacao) REFERENCES TB_Locacao (idLocacao);
-  Alter table TB_Transporte add CONSTRAINT fkt_Vendas FOREIGN KEY (idVenda) REFERENCES TB_Vendas (idVenda);
+)
+Alter table TB_Transporte add constraint pk_TB_Transporte PRIMARY KEY (idTransporte, idLocacao, idVenda);
+Alter table TB_Transporte add CONSTRAINT fkt_TB_Locacao FOREIGN KEY (idLocacao) REFERENCES TB_Locacao (idLocacao);
+Alter table TB_Transporte add CONSTRAINT fkt_Vendas FOREIGN KEY (idVenda) REFERENCES TB_Vendas (idVenda);

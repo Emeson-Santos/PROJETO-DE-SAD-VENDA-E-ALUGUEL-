@@ -85,7 +85,7 @@ CREATE TABLE TB_Locacao (
 ALTER TABLE TB_LOCACAO ADD CONSTRAINT PK_TB_LOCACAO PRIMARY KEY (idLocacao);
 
 ALTER TABLE TB_LOCACAO ADD CONSTRAINT FKL_VENDEDORES FOREIGN KEY (idVendedores) REFERENCES TB_Vendedores (idVendedores);
-ALTER TABLE TB_LOCACAO ADD CONSTRAINT FKL_Cliente FOREIGN KEY (idCliente) REFERENCES TB_Cliente (idCliente);
+ALTER TABLE TB_LOCACAO ADD CONSTRAINT FKL_Cliente FOREIGN KEY (idCliente) REFERENCES TB_Cliente (idCliente); 
 
 -----------------------------------------------------------------------
 

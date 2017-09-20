@@ -91,7 +91,7 @@ ALTER TABLE TB_LOCACAO ADD CONSTRAINT FKL_Cliente FOREIGN KEY (idCliente) REFERE
 
 
 -----------------------------------------------------------------------
-drop table tb_transporte
+
 CREATE TABLE TB_Transporte (
    idTransporte INT IDENTITY(1,1) NOT NULL ,
    codigoTransporte INT NULL,
@@ -106,49 +106,3 @@ CREATE TABLE TB_Transporte (
   alter table TB_Transporte add CONSTRAINT fkt_Vendas FOREIGN KEY (idVenda) REFERENCES TB_Vendas (idVenda);
 
 -----------------------------------------------------------------------
-/*
-CREATE TABLE Produto_Tem_Pedido (
-   Produto_idProduto INT NOT NULL,
-   Produto_Categoria_idCategoria INT NOT NULL,
-   Pedido_idPedido INT NOT NULL,
-   Pedido_Cliente_idCliente INT NOT NULL,
-   PRIMARY KEY (Produto_idProduto, Produto_Categoria_idCategoria, Pedido_idPedido, Pedido_Cliente_idCliente),
-   CONSTRAINT fk_Produto_has_Pedido_Produto FOREIGN KEY (Produto_idProduto)
-    REFERENCES Produto (idProduto)
-   )
-
--- -----------------------------------------------------------------------
-
-CREATE TABLE Pedido_has_Vendedores (
-   Pedido_idPedido INT NOT NULL,
-   Pedido_Cliente_idCliente INT NOT NULL,
-   Vendedores_idVendedores INT NOT NULL,
-   PRIMARY KEY (Pedido_idPedido, Pedido_Cliente_idCliente, Vendedores_idVendedores),
-   CONSTRAINT fk_Pedido_has_Vendedores_Vendedores FOREIGN KEY (Vendedores_idVendedores)
-    REFERENCES Vendedores (idVendedores)
-   )
-
--- -----------------------------------------------------------------------
-
-CREATE TABLE Produto_has_Vendas (
-   Produto_idProduto INT NOT NULL,
-   Vendas_idVenda INT NOT NULL,
-   PRIMARY KEY (Produto_idProduto, Vendas_idVenda),
-   CONSTRAINT fk_Produto_has_Vendas_Produto FOREIGN KEY (Produto_idProduto)
-    REFERENCES Produto (idProduto),
-   CONSTRAINT fk_Produto_has_Vendas_Vendas FOREIGN KEY (Vendas_idVenda)
-    REFERENCES Vendas (idVenda)
-   )
-
------------------------------------------------------------------------
-
-CREATE TABLE Produto_Tem_Locacao (
-   Produto_idProduto INT NOT NULL,
-   Locacao_idLocacao INT NOT NULL,
-  PRIMARY KEY (Produto_idProduto, Locacao_idLocacao),
-    CONSTRAINT fk_Produto_has_Locacao_Produto FOREIGN KEY (Produto_idProduto)
-    REFERENCES Produto (idProduto),
-  CONSTRAINT fk_Produto_has_Locacao_Locacao FOREIGN KEY (Locacao_idLocacao)
-    REFERENCES Locacao (idLocacao)
-  )
-  */

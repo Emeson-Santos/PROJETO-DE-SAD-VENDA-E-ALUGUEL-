@@ -1,17 +1,21 @@
+--CREATE DATABASE OLTP
+--USE OLTP
 -----------------------------------------------------------------------
+
 
 CREATE TABLE TB_Produto (
   idProduto INT NOT NULL identity(1,1),
   nome VARCHAR(45) NULL,
   categoria varchar(45) null, 
   status_produto varchar(25) null check (status_produto in('SEM DEFEITO','COM DEFEITO')), 
-    
-  )
+
+)
   ALTER TABLE TB_PRODUTO ADD CONSTRAINT PK_TB_PRODUTO PRIMARY KEY (idProduto);
 
 -----------------------------------------------------------------------
 
-CREATE TABLE TB_Cliente (
+CREATE TABLE TB_Cliente 
+(
    idCliente INT NOT NULL identity(1,1),
    nome VARCHAR(45) NULL,
    dataNascimento DATETIME NULL,
@@ -83,7 +87,6 @@ CREATE TABLE TB_Locacao (
    idCliente INT NOT NULL,--p/ chave estrangeira
    )
 ALTER TABLE TB_LOCACAO ADD CONSTRAINT PK_TB_LOCACAO PRIMARY KEY (idLocacao);
-
 ALTER TABLE TB_LOCACAO ADD CONSTRAINT FKL_VENDEDORES FOREIGN KEY (idVendedores) REFERENCES TB_Vendedores (idVendedores);
 ALTER TABLE TB_LOCACAO ADD CONSTRAINT FKL_Cliente FOREIGN KEY (idCliente) REFERENCES TB_Cliente (idCliente);
 
@@ -91,7 +94,6 @@ ALTER TABLE TB_LOCACAO ADD CONSTRAINT FKL_Cliente FOREIGN KEY (idCliente) REFERE
 
 
 -----------------------------------------------------------------------
-
 CREATE TABLE TB_Transporte (
    idTransporte INT IDENTITY(1,1) NOT NULL ,
    codigoTransporte INT NULL,
@@ -100,9 +102,7 @@ CREATE TABLE TB_Transporte (
    idLocacao INT NOT NULL,
    idVenda INT NOT NULL,
   )
+
   Alter table TB_Transporte add constraint pk_TB_Transporte PRIMARY KEY (idTransporte, idLocacao, idVenda);
-
   Alter table TB_Transporte add CONSTRAINT fkt_TB_Locacao FOREIGN KEY (idLocacao) REFERENCES TB_Locacao (idLocacao);
-  alter table TB_Transporte add CONSTRAINT fkt_Vendas FOREIGN KEY (idVenda) REFERENCES TB_Vendas (idVenda);
-
------------------------------------------------------------------------
+  Alter table TB_Transporte add CONSTRAINT fkt_Vendas FOREIGN KEY (idVenda) REFERENCES TB_Vendas (idVenda);

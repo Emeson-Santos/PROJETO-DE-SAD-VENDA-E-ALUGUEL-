@@ -188,8 +188,7 @@ CREATE TABLE FATO_VENDA (
   ALTER TABLE FATO_VENDA ADD CONSTRAINT FKV_DIM_TRANSPORTE FOREIGN KEY (ID_TRANSPORTE) REFERENCES DIM_Transporte (id_Transporte)
   ALTER TABLE FATO_VENDA ADD CONSTRAINT FKV_DIM_PRODUTO FOREIGN KEY (ID_PRODUTO) REFERENCES DIM_Produto (id_Produto)
   
-  -------------------------------------------------------------------------------------------------------------------
- 
+  
  --------------------------------------------------------
  -- SIMULACAO DA AREA DE STAGE JA CARREGADA
  -----------------------------------------------------------

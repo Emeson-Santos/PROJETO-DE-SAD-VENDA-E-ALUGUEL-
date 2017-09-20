@@ -1,5 +1,6 @@
 CREATE TABLE TB_Produto_AUX (
   idProduto INT NOT NULL,
+  DATA_CARGA DATETIME NOT NULL,
   nome VARCHAR(45) NULL,
   categoria varchar(45) null, 
   status_produto varchar(25) null
@@ -7,6 +8,7 @@ CREATE TABLE TB_Produto_AUX (
 
 CREATE TABLE TB_Cliente_AUX (
    idCliente INT NOT NULL,
+   DATA_CARGA DATETIME NOT NULL,
    nome VARCHAR(45) NULL,
    dataNascimento DATETIME NULL,
    Matricula INT NULL,
@@ -24,6 +26,7 @@ CREATE TABLE TB_Cliente_AUX (
 CREATE TABLE TB_Vendedores_AUX 
 (
    idVendedores INT NOT NULL,
+   DATA_CARGA DATETIME NOT NULL,
    nome VARCHAR(45) NULL,
    matricula INT NULL,
    login VARCHAR(45) NULL,
@@ -49,6 +52,7 @@ CREATE TABLE TB_TIPO_PAGAMENTO_AUX
 
 CREATE TABLE TB_Vendas_AUX (
    idVenda INT NOT NULL,
+   DATA_CARGA DATETIME NOT NULL,
    cod_Venda INT NULL,
    dataVenda DATETIME NULL,
    valor DECIMAL(10,2) NULL,
@@ -60,6 +64,7 @@ CREATE TABLE TB_Vendas_AUX (
 
 CREATE TABLE TB_Locacao_AUX (
    idLocacao INT NOT NULL,
+   DATA_CARGA DATETIME NOT NULL,
    cod_Locacao INT NULL,
    data_Locacao DATETIME NULL,
    valorLocacao DECIMAL(10,2) NULL,
@@ -71,6 +76,7 @@ CREATE TABLE TB_Locacao_AUX (
 
 CREATE TABLE TB_Transporte_AUX (
    idTransporte INT NULL,
+   DATA_CARGA DATETIME NOT NULL,
    codigoTransporte INT NOT NULL,
    transporte VARCHAR(25) NULL,
    EnderecoFesta VARCHAR(45) NULL,

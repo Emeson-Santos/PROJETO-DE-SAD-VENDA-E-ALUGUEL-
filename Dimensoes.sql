@@ -8,6 +8,7 @@ DROP TABLE DIM_PRODUTO;
 DROP TABLE FATO_VENDA;
 DROP TABLE FATO_LOCACAO;
 
+
 ---------------------------------------------------------------------------
 --              SCRIPT DO MODELO ESTRELA FATO-LOCAÇÃO                      --
 ---------------------------------------------------------------------------
@@ -16,7 +17,7 @@ DROP TABLE FATO_LOCACAO;
 -- TABELA DE DIM_TEMPO`
 -- -----------------------------------------------------
 
-DROP TABLE DIM_TEMPO
+
 CREATE TABLE DIM_TEMPO
 (  
   Id_Tempo int IDENTITY(1,1) NOT NULL,
@@ -39,8 +40,9 @@ CREATE TABLE DIM_TEMPO
   Ano smallint NOT NULL 
 --  PRIMARY KEY (Id_Tempo) 
   )
-  ALTER TABLE DIM_TEMPO ADD CONSTRAINT PK_DIM_TEMPO PRIMARY KEY(ID_TEMPO) 
-
+  ALTER TABLE DIM_TEMPO ADD CONSTRAINT PK_DIM_TEMPO PRIMARY KEY(ID_TEMPO)
+   
+select * from dim_tempo
 -- -----------------------------------------------------
 -- TABELA DE DIM_CLIENTE
 -- -----------------------------------------------------

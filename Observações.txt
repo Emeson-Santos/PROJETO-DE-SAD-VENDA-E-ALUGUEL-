@@ -1,0 +1,3 @@
+--link que explica os tipos de dimensões
+http://rafaelpiton.com.br/data-warehouse-tipos-dimensoes/
+------------------------------------------------------------
